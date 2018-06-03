@@ -1,7 +1,9 @@
 function makeGrid(event) {
 	let height = $('#inputHeight').val();
 	let weight = $('#inputWeight').val();
-	const grid = $('#pixelCanvas');
+	const grid = $('#pixelCanvas');	
+
+	grid.html("");
 
 	for(var h = 1; h <= height; h++){
 		grid.append("<tr></tr>");
@@ -11,8 +13,6 @@ function makeGrid(event) {
 		for(var w = 1; w <= weight; w++){
 			$(this).append("<td></td>");
 	}
-
-	grid.html("");
 
 	event.preventDefault();
 	})
