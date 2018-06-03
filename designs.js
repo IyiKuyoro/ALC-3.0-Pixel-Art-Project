@@ -1,79 +1,27 @@
-var weight;
-
 function makeGrid(event) {
-    var height = $('#inputHeight').val();   //Stores the new rows count
-    weight = $('#inputWeight').val();   //Stores the new cells/row count
-    var grid = $('#pixelCanvas');           //stores the table that holds the cells
+	let height = $('#inputHeight').val();
+	let weight = $('#inputWeight').val();
+	const grid = $('#pixelCanvas');
 
-    if(grid.children().length < height){    //If the no of rows is less that the requested
-        var oldHeight = grid.children().length;     //The previous no of rows
-        var heightEx = height - oldHeight;          //The no of rows to be added now.
+	for(var h = 1; h <= height; h++){
+		grid.append("<tr></tr>");
+	}
 
-        //Add new rows
-        for(var i = 0; i < heightEx; i++){
-            grid.append("<tr></tr>");
-        }
+	grid.children().each(function(){
+		for(var w = 1; w <= weight; w++){
+			$(this).append("<td></td>");
+	}
 
-        //Add cells to new rows and increase or decrease cells in old rows if neccesary
-        grid.children().each(function(index){
-            if(index >= oldHeight){     //If the current row is more that the old rows count
-                //Add cells to new rows
-                for(var i = 0; i < weight; i++){
-                    $(this).append("<td></td>");
-                }
-            }else{                      //If increase the cells of old rows or decrease them as recuired.
-                //Add cells to old rows
-                addCells($(this));
-                //Remove excess cells in old rows.
-                removeExCells($(this));
-            }
-        });
-    }else{                                  //If no of rows is more than or equal to the requested.
-        var oldHeight = grid.children().length;
-        var rows = grid.children();
+	grid.html("");
 
-        //Remove excess rows.
-        while(oldHeight > height){
-            rows[--oldHeight].remove();
-        }
+	event.preventDefault();
+	})
 
-        //Remove excess cells.
-        grid.children().each(function(){
-            removeExCells($(this));
-        });
-        //Add cells.
-        grid.children().each(function(){
-            addCells($(this));
-        });
-    }
-
-    event.preventDefault();
 }
 
-//Add cells to rows.
-function addCells(element){
-    for(var i = element.children().length; i < weight; i++){
-        element.append("<td></td>");
-    }
-}
-
-//Remove excess cells
-function removeExCells(element){
-    if(element.children().length >= weight){
-        var oldWeight = element.children().length;
-
-        while(oldWeight > weight){
-            element.children()[--oldWeight].remove();
-        }
-    }
-}
-
-//Event Handlers
-$('#sizePicker').submit(makeGrid);
-$('table').on('click', 'td',function(){
+$("table").on('click', "td", function(){
     var color = $('#colorPicker').val();
-    $(this).css("background-color", color);
+        $(this).css("background-color", color);
 });
-$('.clear').click(function(){
-    $('tr').find('*').css("background-color", 'white');
-});
+
+$('#sizePicker').submit(makeGrid);
