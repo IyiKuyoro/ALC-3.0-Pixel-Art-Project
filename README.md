@@ -1,16 +1,5 @@
 # Pixel Art Maker Project
 
-## Table of Contents
+This project was created as part of an UDACITY course. I take no credit for all of it, as I simply downloaded a starter code to complete it.
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
-
-## Instructions
-
-To get started, open `designs.js` and start building out the app's functionality.
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+It is a simple page that simulates a pixel designer. I have written the JS code to aid easy resizing of the grid without having to lose any previous work done.
