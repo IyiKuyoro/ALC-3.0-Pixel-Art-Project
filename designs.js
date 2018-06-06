@@ -90,6 +90,10 @@ $('.clear').click(function(){
 
 
 function colorToHex(color) {
+    if(color === "rgb(0, 0, 0)"){
+        return `#000000`;
+    }
+
     if (color.substr(0, 1) === '#') {
         return color;
     }
