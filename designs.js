@@ -70,10 +70,13 @@ function removeExCells(element){
 
 //Event Handlers
 $('#sizePicker').submit(makeGrid);
-$('table').on('click', 'td',function(){
+$('td').toggle(function(){
     var color = $('#colorPicker').val();
     $(this).css("background-color", color);
-});
+    }, function(){
+        $(this).css("background-color: #fff;");
+    }
+);
 $('.clear').click(function(){
     $('tr').find('*').css("background-color", 'white');
 });
