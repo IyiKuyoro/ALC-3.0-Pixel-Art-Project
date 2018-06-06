@@ -70,13 +70,18 @@ function removeExCells(element){
 
 //Event Handlers
 $('#sizePicker').submit(makeGrid);
-$('td').toggle(function(){
+$('table').on('click', 'td',function(){
     var color = $('#colorPicker').val();
-    $(this).css("background-color", color);
-    }, function(){
-        $(this).css("background-color: #fff;");
+    var cell = $(this);
+
+    if(cell.attr("class") === "painted"){
+        cell.css("background-color", "white");
+    }else{
+        cell.css("background-color", color);
     }
-);
+
+    cell.toggleClass("painted");
+});
 $('.clear').click(function(){
     $('tr').find('*').css("background-color", 'white');
 });
