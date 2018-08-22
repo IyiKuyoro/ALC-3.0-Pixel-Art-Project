@@ -1,6 +1,6 @@
 # Pixel Art Maker
 This application allows users create a grid of equally sized cells by specifying the number of cells for the width and the height. The grid is used for designing beautiful pixel arts of different shapes colour and sizes.
-![game screen shot](https://iyikuyoro.github.io/Pixel-Art-Project/images/Pixel_Art_Screen_Shot.png)
+![game screen shot](https://iyikuyoro.github.io/Pixel-Art-Project/images/shot.png)
 
 # Getting Started
 You can access the live version here :point_right: [Here](https://iyikuyoro.github.io/Pixel-Art-Project/).
